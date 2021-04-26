@@ -1,8 +1,9 @@
 let socket_admin_id = null;
 let emailUser = null;
+let socket = null;
 
 document.querySelector("#start_chat").addEventListener("click", (event) => {
-  const socket = io();
+  socket = io();
 
   const chat_help = document.getElementById("chat_help");
   chat_help.style.display = "none";
@@ -65,7 +66,7 @@ document.querySelector("#send_message_button").addEventListener("click", (event)
   const text = document.getElementById("message_user");
 
   const params = {
-    text, 
+    text: text.value,
     socket_admin_id
   }
 
